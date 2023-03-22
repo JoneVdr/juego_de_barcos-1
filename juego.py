@@ -1,6 +1,5 @@
 import sys
-
-from clases import Barco
+from clases.Barco import Barco
 from clases import Case
 from clases import Tablero
 
