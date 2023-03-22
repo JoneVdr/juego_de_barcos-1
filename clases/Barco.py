@@ -29,7 +29,7 @@ def horizontal(self):
         letra = num2l(rang)
         cifras = [num2c(x) for x in range(primero, primero + LONGITUDES_BARCOS)]
         self.casillas = {Case.instances[l + c]
-                             for l, c in product(repeat(letra, LONGITUDES_BARCOS), cifras)}
+                for l, c in product(repeat(letra, LONGITUDES_BARCOS), cifras)}
     else:
         rang = choice(range(num_columnas))
         primero = choice(range(num_lineas + 1 - LONGITUDES_BARCOS))
@@ -60,8 +60,7 @@ def instanciar(self):
     else:
         # break relativo al "while True:"
         return
-    
-    
+
 def generar_barcos(self):
         while True:
             self.longitud = choice(Conventions.barcos_longitud)
@@ -75,4 +74,3 @@ def generar_barcos(self):
 
 
 
-        

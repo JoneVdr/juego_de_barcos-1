@@ -32,7 +32,7 @@ def probar_fin_juego(self):
         return True
     else:
         return False
-    
+
 def jugar_tirada(self):
         """Permite gestionar el dato introducido de una tirada"""
         while True:
