@@ -2,7 +2,7 @@ from Conventions import Conventions
 from Case import Case
 from itertools import product, repeat
 from random import choice
-from juego import HORIZONTAL, LONGITUDES_BARCOS, ORIENTACIONES
+from juego import HORIZONTAL, ORIENTACIONES
 
 
 instances = []
@@ -23,20 +23,20 @@ class Barco:
     def horizontal(self):
         if self.orientacion == HORIZONTAL:
             rang = choice(range(num_lineas))
-            primero = choice(range(num_columnas + 1 - LONGITUDES_BARCOS))
+            primero = choice(range(num_columnas + 1 - self.longitud))
             letra = num2l(rang)
-            cifras = [num2c(x) for x in range(primero, primero + LONGITUDES_BARCOS)]
+            cifras = [num2c(x) for x in range(primero, primero + self.logitud)]
             self.casillas = {Case.instances[l + c]
-                    for l, c in product(repeat(letra, LONGITUDES_BARCOS), cifras)}
+                    for l, c in product(repeat(letra, self.longitud), cifras)}
         else:
             rang = choice(range(num_columnas))
-            primero = choice(range(num_lineas + 1 - LONGITUDES_BARCOS))
+            primero = choice(range(num_lineas + 1 - self.longitud))
             cifra = num2c(rang)
-            letras = [num2l(x) for x in range(primero, primero + LONGITUDES_BARCOS)]
+            letras = [num2l(x) for x in range(primero, primero + self.longitud)]
 
             # Crear el barco
             self.casillas = {Case.instances[l + c]
-                for l, c in product(letras, repeat(cifra, LONGITUDES_BARCOS))}
+                for l, c in product(letras, repeat(cifra, self.longitud))}
         return self.casillas
 
 
