@@ -1,13 +1,9 @@
 from numpy import product
-from clases import Barco
-from clases import Tablero
 from clases import Case
 from juego import CASO_AGUA, CASO_NO_JUGADO, CASO_TOCADO
 from clases.Conventions import (
     tablero_num_lineas,
     tablero_num_columnas,
-    generar_num_linea,
-    generar_num_columna,
     generar_nombre_casilla
 )
 instances = {}
@@ -18,19 +14,19 @@ def __init__(self, x, y):
   self.x = x
   self.y = y
 
+def generar_nombre_casilla(self, x, y):
 # Queremos poder acceder a una casilla a partir de sus coordenadas
 
   instances[x, y] = self
-  
+
   # Generación del nombre de la casilla
-  
+
 
 
   self._generar_nombre()
 
   # Queremos poder acceder a una casilla a partir de su nombre
   instances[self.nombre] = self
-  
   # Evolución de la casilla
   self.jugada = False
   self.barco = None  # No toca a un barco de momento.
@@ -43,7 +39,7 @@ def jugar(self):
   """Describe qué pasa cuando jugamos una casilla"""
   self.jugada = True
   self.jugadas.add(self)
-  
+
   if self.barco is not None:
       if len(casillas - self.casillas_jugadas) == 0:
           print("Hundido !!")
